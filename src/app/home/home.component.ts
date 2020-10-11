@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
             .pipe(
                 tap(() => console.log("http request executed")), // produces side effects in the observable chain - logging, updates outside of this chain etc
                 map(response => Object.values(response["payload"])),
-                shareReplay()
+                shareReplay() // stuff that is shared needs to go above this line
             );
 
         this.beginnersCourses$ = courses$
